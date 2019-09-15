@@ -1,7 +1,10 @@
 package com.example.order.entity;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
+import org.springframework.stereotype.Component;
+@Component
 public class Product_info {
 	/***/
 	private String product_id;
@@ -21,6 +24,37 @@ public class Product_info {
 	private String create_time;
 	/**修改时间*/
 	private String update_time;
+	
+	private Product_category product_category;
+	
+	private Double beginPrice;
+	private Double endPrice;
+	private String category_name;
+	
+	public Double getBeginPrice() {
+		return beginPrice;
+	}
+	public void setBeginPrice(Double beginPrice) {
+		this.beginPrice = beginPrice;
+	}
+	public Double getEndPrice() {
+		return endPrice;
+	}
+	public void setEndPrice(Double endPrice) {
+		this.endPrice = endPrice;
+	}
+	public String getCategory_name() {
+		return category_name;
+	}
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
+	}
+	public Product_category getProduct_category() {
+		return product_category;
+	}
+	public void setProduct_category(Product_category product_category) {
+		this.product_category = product_category;
+	}
 	public String getProduct_id() {
 		return product_id;
 	}
@@ -80,7 +114,8 @@ public class Product_info {
 		return "Product_info [product_id=" + product_id + ", product_name=" + product_name + ", product_price="
 				+ product_price + ", product_stock=" + product_stock + ", product_description=" + product_description
 				+ ", product_icon=" + product_icon + ", category_type=" + category_type + ", create_time=" + create_time
-				+ ", update_time=" + update_time + "]";
+				+ ", update_time=" + update_time + ", product_category=" + product_category + ", beginPrice="
+				+ beginPrice + ", endPrice=" + endPrice + ", category_name=" + category_name + "]";
 	}
 	
 }

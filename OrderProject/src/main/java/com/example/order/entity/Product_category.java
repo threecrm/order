@@ -1,5 +1,8 @@
 package com.example.order.entity;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Product_category {
 	/***/
 	private Integer category_id;
@@ -7,6 +10,7 @@ public class Product_category {
 	private String category_name;
 	/**类目编号*/
 	private Integer category_type;
+	
 	/**创建时间*/
 	private String create_time;
 	/**修改时间*/
