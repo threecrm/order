@@ -55,11 +55,39 @@
   <!-- 添加商品 -->
   <insert id="addProduct_info" parameterType="product_info">
      insert into product_info(product_id,product_name,product_price,product_stock,product_description,product_icon,category_type)
-     values(product_id.randomUUID(),#{product_name},#{product_price},#{product_stock},#{product_description},#{product_icon},#{product_category.category_type})
+     values(#{product_id},#{product_name},#{product_price},#{product_stock},#{product_description},#{product_icon},#{product_category.category_type})
   </insert>
-  
+  <!-- 修改商品 -->
+  <update id="updateProduct_info" parameterType="product_info">
+     update product_info
+       <set>
+          <if test="product_name!=null and product_name!=''">
+              product_name=#{product_name},
+          </if>
+          <if test="product_price!=null and product_price!=''">
+              product_price=#{product_price},
+          </if>
+          <if test="product_stock!=null and product_stock!=''">
+              product_stock=#{product_stock},
+          </if>
+          <if test="product_description!=null and product_description!=''">
+              product_description=#{product_description},
+          </if>
+          <if test="product_icon!=null and product_icon!=''">
+              product_icon=#{product_icon},
+          </if>
+          <if test="product_category.category_type!=null and product_category.category_type!=''">
+              category_type=#{product_category.category_type}
+          </if>
+      </set>
+      <where>
+          <if test="product_id!=null and product_id!=''">
+              product_id=#{product_id}
+          </if>
+      </where>
+  </update>
   <!-- 下架商品 -->
-  <delete id="delProduct_info" parameterType="int">
+  <delete id="delProduct_info" parameterType="String">
       delete from product_info where product_id=#{product_id}
   </delete>
   
