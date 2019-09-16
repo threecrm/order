@@ -1,7 +1,6 @@
 package com.example.order.entity;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 
 import org.springframework.stereotype.Component;
 @Component
