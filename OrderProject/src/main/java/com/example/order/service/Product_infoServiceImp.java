@@ -43,27 +43,21 @@ public class Product_infoServiceImp implements Product_infoService {
      */
 	@Override
 	public Integer addProduct_info(Product_info product_info) {
-		// TODO Auproduct_idto-generated method stub
-		UUID randomUUID = UUID.randomUUID();
-		String randomUUID1 = randomUUID.toString();
-		product_info.setProduct_id(randomUUID1);
+		// TODO Auto-generated method stub
 		return product_infoMapper.addProduct_info(product_info);
-		
 	}
-    /**
-     * 修改商品
-     */
+
 	@Override
 	public Integer updateProduct_info(Product_info product_info) {
 		// TODO Auto-generated method stub
-		return product_infoMapper.updateProduct_info(product_info);
+		return null;
 	}
 	
     /**
      * 下架商品
      */
 	@Override
-	public Integer delProduct_info(String product_id) {
+	public Integer delProduct_info(Integer product_id) {
 		// TODO Auto-generated method stub
 		return product_infoMapper.delProduct_info(product_id);
 	}
