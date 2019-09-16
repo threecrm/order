@@ -35,6 +35,6 @@ public interface Product_infoService {
 	 * @param product_id
 	 * @return
 	 */
-	Integer delProduct_info(Integer product_id);
+	Integer delProduct_info(String product_id);
 
 }

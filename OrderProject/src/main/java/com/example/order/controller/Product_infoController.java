@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.order.entity.Fenye;
@@ -25,7 +26,7 @@ public class Product_infoController {
 	 * @param rows
 	 * @return
 	 */
-	@GetMapping("/selectProduct_info")
+	@RequestMapping("/selectProduct_info")
 	public Fenye selectProduct_info(Integer page,Integer rows,Product_info product_info) {
 		fenye.setPage((page-1)*rows);
 		fenye.setPageSize(rows);
@@ -37,7 +38,7 @@ public class Product_infoController {
 	 * 查询商品类目
 	 * @return
 	 */
-	@GetMapping("/selectProduct_category")
+	@RequestMapping("/selectProduct_category")
 	public List<Product_category> selectProduct_category(){
 		return product_infoService.selectProduct_category();
 	}
@@ -47,10 +48,21 @@ public class Product_infoController {
 	 * @param product_info
 	 * @return
 	 */
-	@GetMapping("/addProduct_info")
+	@RequestMapping("/addProduct_info")
 	public Integer addProduct_info(Product_category product_category,Product_info product_info) {
 		product_info.setProduct_category(product_category);
 		return product_infoService.addProduct_info(product_info);
+	}
+	/**
+	 * 修改商品
+	 * @param product_category
+	 * @param product_info
+	 * @return
+	 */
+	@RequestMapping("/updateProduct_info")
+	public Integer updateProduct_info(Product_category product_category,Product_info product_info) {
+		product_info.setProduct_category(product_category);
+		return product_infoService.updateProduct_info(product_info);
 	}
 	
 	/**
@@ -58,8 +70,8 @@ public class Product_infoController {
 	 * @param product_id
 	 * @return
 	 */
-	@GetMapping("/delProduct_info")
-	public Integer delProduct_info(Integer product_id) {
+	@RequestMapping("/delProduct_info")
+	public Integer delProduct_info(String product_id) {
 		return product_infoService.delProduct_info(product_id);
 	}
 
