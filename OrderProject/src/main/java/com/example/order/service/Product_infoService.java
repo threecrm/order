@@ -12,7 +12,7 @@ public interface Product_infoService {
 	 * @param fenye
 	 * @return
 	 */
-	Fenye selectProduct_info(Fenye fenye);
+	List<Product_info> selectProduct_info(Fenye<Product_info> fenye);
 	/**
 	 * 查询商品类目
 	 * @return

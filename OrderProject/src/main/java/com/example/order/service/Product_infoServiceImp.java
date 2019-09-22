@@ -17,13 +17,12 @@ public class Product_infoServiceImp implements Product_infoService {
 	private Product_infoMapper product_infoMapper;
 
 	@Override
-	public Fenye selectProduct_info(Fenye fenye) {
+	public List<Product_info> selectProduct_info(Fenye<Product_info> fenye) {
 		// TODO Auto-generated method stub
 		List<Product_info> selectProduct_info = product_infoMapper.selectProduct_info(fenye);
 		Integer selectCount = product_infoMapper.selectCount(fenye);
-		fenye.setRows(selectProduct_info);
 		fenye.setTotal(selectCount);
-		return fenye;
+		return selectProduct_info;
 		
 		/*
 		 * UUID randomUUID = UUID.randomUUID(); System.out.println(randomUUID);

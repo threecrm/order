@@ -15,13 +15,13 @@ public interface Product_infoMapper {
 	 * @param fenye
 	 * @return
 	 */
-	List<Product_info> selectProduct_info(Fenye fenye);
+	List<Product_info> selectProduct_info(Fenye<Product_info> fenye);
 	/**
 	 * 查询总条数
 	 * @param fenye
 	 * @return
 	 */
-	Integer selectCount(Fenye fenye);
+	Integer selectCount(Fenye<Product_info> fenye);
 	/**
 	 * 查询商品类目
 	 * @return

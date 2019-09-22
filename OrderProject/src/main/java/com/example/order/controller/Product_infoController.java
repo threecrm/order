@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +18,7 @@ public class Product_infoController {
 	@Autowired
 	private Product_infoService product_infoService;
 	@Autowired
-	private Fenye fenye;
+	private Fenye<Product_info> fenye;
 	/**
 	 * 查询所有
 	 * @param page
@@ -27,11 +26,12 @@ public class Product_infoController {
 	 * @return
 	 */
 	@RequestMapping("/selectProduct_info")
-	public Fenye selectProduct_info(Integer page,Integer rows,Product_info product_info) {
+	public Fenye<Product_info> selectProduct_info(Integer page,Integer rows,Product_info product_info) {
 		fenye.setPage((page-1)*rows);
 		fenye.setPageSize(rows);
 		fenye.setProduct_info(product_info);
-		fenye = product_infoService.selectProduct_info(fenye);
+		List<Product_info> selectProduct_info =  product_infoService.selectProduct_info(fenye);
+		fenye.setRows(selectProduct_info);
 		return fenye;
 	}
 	/**
